@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.App-header {
+  width: 100%;
+  padding: 100px;
+  background-color: #808080;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Todo-input {
+  background: transparent;
+  border: none;
+  font-size: 25px;
+  color: white;
+  margin: 10px;
+  outline: none;
+}
+
+.Todo-button {
+  background: white;
+  padding: 100px;
+  border: none;
+}
+
+.Item-container {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 4px;
+  background: white;
+}
+
+.Item-field {
+  border: none;
+  outline: none;
+  font-size: 20px;
+}
