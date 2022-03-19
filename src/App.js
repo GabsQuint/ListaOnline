@@ -1,34 +1,34 @@
 import React, { useState } from 'react';
 import './App.css';
-import ListItem from './components/ListItem'
-import NewBuyInput from './components/NewBuyInput'
+// import ListItem from './components/ListItem'
+// import NewBuyInput from './components/NewBuyInput'
 import { supabase } from './service/supabase'
 
 const App = () => {
-  const [Buys, setBuys] = useState([]);
+  // const [Buys, setBuys] = useState([]);
 
   const [editar, setEditar] = useState(0);
   const [name, setName] = React.useState("");
   const [purchase, setPurchases] = React.useState([]);
-  const [ nameRequest,setNameReques ] = React.useState(0)
+  // const [ nameRequest,setNameReques ] = React.useState(0)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setName('')
-    if (editar != 0){
+    if (editar !== 0){
       await edit()
       return
       
     }
     
-    const { data, error } = await supabase.from('purchases').insert({ name: name });
+    const { data } = await supabase.from('purchases').insert({ name: name });
     if (data) {
       setName("")
     }
   }
 
   const get_purchases = async () => {
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from('purchases')
       .select()
     setPurchases(data);
@@ -40,7 +40,7 @@ const App = () => {
 
 
   const handleDelete = async (id) => {
-    const { data, error } = await supabase
+       await supabase
       .from('purchases')
       .delete()
       .match({ id: id })
@@ -49,8 +49,7 @@ const App = () => {
 
 
   const edit = async() => {
-    console.log(editar);
-    const { data, error } = await supabase
+      await supabase
       .from('purchases')
       .update({ name: name })
       .match ({ id: editar })
@@ -75,7 +74,7 @@ const App = () => {
             value={name}
             onChange={e => setName(e.target.value)}
           />
-            <button> { editar != 0 ? "Editar" : "Cadastrar" } </button>
+            <button> { editar !== 0 ? "Editar" : "Cadastrar" } </button>
             {/* { editar != 0 ?  <button type="button" onClick={edit} > EDITAR </button> : <button  onClick={handleSubmit}> CADASTRAR </button>  } */}
         </form>
 
