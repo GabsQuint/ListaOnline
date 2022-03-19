@@ -20,7 +20,7 @@ const App = () => {
       return
       
     }
-    
+    if(name === "") return;
     const { data } = await supabase.from('purchases').insert({ name: name });
     if (data) {
       setName("")
