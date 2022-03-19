@@ -25,6 +25,7 @@ const App = () => {
     const { data } = await supabase.from('purchases').insert({ name: name });
     if (data) {
       setName("")
+      get_purchases();
     }
   }
 
