@@ -20,7 +20,8 @@ const App = () => {
       return
       
     }
-    if(name === "") return;
+    if(name.trim() === "") return;
+      
     const { data } = await supabase.from('purchases').insert({ name: name });
     if (data) {
       setName("")
