@@ -37,7 +37,7 @@ const App = () => {
 
   React.useEffect(() => {
     get_purchases();
-  }, [purchase])
+  }, [])
 
 
   const handleDelete = async (id) => {
