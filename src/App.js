@@ -74,6 +74,7 @@ const App = () => {
           <input
             type="text"
             className="txt1"
+            maxLength={30}
             value={name}
             onChange={e => setName(e.target.value)}
           />
