@@ -12,7 +12,7 @@
 .App-header {
   width: 100%;
   padding: 100px;
-  background-color: #0dcaf0;
+  background-color: #605B56;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@
   height: 25px;
   border-radius: 8px;
   font-weight: 500;
-  background: #835afd;
+  background: #ACC18A;
   color: #fff;
   padding: 0 16px;
 
@@ -72,7 +72,7 @@
   height: 25px;
   border-radius: 8px;
   font-weight: 500;
-  background: #835afd;
+  background: #ACC18A;
   color: #fff;
   padding: 0 16px;
 
@@ -90,7 +90,7 @@
   height: 25px;
   border-radius: 8px;
   font-weight: 500;
-  background: #835afd;
+  background: #ACC18A;
   color: #fff;
   padding: 0 16px;
 
@@ -117,3 +117,50 @@
   
   transition: filter 0.2s;
 }
+
+.separator{
+  font-size: 14px;
+  color: #837A75;
+  font-weight: 1000;
+
+  margin: 32px 0;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  }
+  
+.h1 {
+margin-top: 32px;
+height: 25px;
+border-radius: 8px;
+font-weight: 500;
+color: #837A75;
+
+justify-content: center; 
+align-items: center;
+
+cursor: pointer;
+border: 0;
+
+transition: filter 0.2s;
+}
+
+/* .checkbox {
+  margin-right: 10px;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+} */

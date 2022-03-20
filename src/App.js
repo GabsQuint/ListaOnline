@@ -10,6 +10,7 @@ const App = () => {
   const [editar, setEditar] = useState(0);
   const [name, setName] = React.useState("");
   const [purchase, setPurchases] = React.useState([]);
+  const [checkbox, setChecked] = React.useState(false);
   // const [ nameRequest,setNameReques ] = React.useState(0)
 
   const handleSubmit = async (e) => {
@@ -17,12 +18,11 @@ const App = () => {
     setName('')
     if (editar !== 0){
       await edit()
-      return
-      
     }
     if(!name) return;
-      
-    const { data } = await supabase.from('purchases').insert({ name: name });
+    const { data } = await 
+    supabase.from('purchases')
+    .insert({ name: name });
     if (data) {
       setName("")
       get_purchases();
@@ -41,11 +41,21 @@ const App = () => {
   }, [])
 
 
+  const handleCheck = async() => {
+    await supabase
+    .from('checkbox')
+    .insert({checkbox: checkbox})
+  get_purchases();
+  };
+      
+
   const handleDelete = async (id) => {
        await supabase
       .from('purchases')
       .delete()
       .match({ id: id })
+      setName("")
+      setEditar(0)
     get_purchases();
   }
 
@@ -71,6 +81,8 @@ const App = () => {
     <div className="App">
       <div className="App-header">
         <form onSubmit={handleSubmit}>
+          <h1 className="h1">Lista de compras</h1>
+          <div className="separator">Insira seu produto abaixo</div>
           <input
             type="text"
             className="txt1"
@@ -79,13 +91,15 @@ const App = () => {
             onChange={e => setName(e.target.value)}
           />
             <button className="Btn1"> { editar !== 0 ? "Editar" : "Cadastrar" } </button>
+            <div></div>
             {/* { editar != 0 ?  <button type="button" onClick={edit} > EDITAR </button> : <button  onClick={handleSubmit}> CADASTRAR </button>  } */}
         </form>
 
         {purchase.map((item) => {
           return (
-            <div key={item.id}>
-              <p> {item.name}
+            <div key={item.id}><br></br>
+              <p> <input type = "checkbox" onClick={() => handleCheck(checkbox)}></input>
+                {item.name}
                 <button className="Btn2" onClick={() => handleUpdate(item)} > EDITAR </button>
                 <button className="Btn3"onClick={() => handleDelete(item.id)} > DELETAR </button>
               </p>
@@ -97,5 +111,6 @@ const App = () => {
     </div>
   )
 }
+
 
 export default App;
