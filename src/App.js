@@ -55,7 +55,7 @@ const App = () => {
       .from('purchases')
       .update({ name: name })
       .match ({ id: editar })
- 
+      setEditar(0)
     get_purchases();
 
   }
@@ -73,10 +73,11 @@ const App = () => {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
+            className="txt1"
             value={name}
             onChange={e => setName(e.target.value)}
           />
-            <button> { editar !== 0 ? "Editar" : "Cadastrar" } </button>
+            <button className="Btn1"> { editar !== 0 ? "Editar" : "Cadastrar" } </button>
             {/* { editar != 0 ?  <button type="button" onClick={edit} > EDITAR </button> : <button  onClick={handleSubmit}> CADASTRAR </button>  } */}
         </form>
 
@@ -84,10 +85,9 @@ const App = () => {
           return (
             <div key={item.id}>
               <p> {item.name}
-                <button onClick={() => handleUpdate(item)} > EDITAR </button>
-                <button onClick={() => handleDelete(item.id)} > DELETAR </button>
+                <button className="Btn2" onClick={() => handleUpdate(item)} > EDITAR </button>
+                <button className="Btn3"onClick={() => handleDelete(item.id)} > DELETAR </button>
               </p>
-
             </div>
           )
         })}

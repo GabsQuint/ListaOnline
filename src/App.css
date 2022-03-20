@@ -12,7 +12,7 @@
 .App-header {
   width: 100%;
   padding: 100px;
-  background-color: #808080;
+  background-color: #0dcaf0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -49,4 +49,71 @@
   border: none;
   outline: none;
   font-size: 20px;
+}
+
+.Btn1 {
+  margin-top: 32px;
+  height: 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: #835afd;
+  color: #fff;
+  padding: 0 16px;
+
+  margin-left: 10px;
+  align-items: center;
+
+  cursor: pointer;
+  border: 0;
+}
+
+.Btn2 {
+  margin-top: 32px;
+  height: 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: #835afd;
+  color: #fff;
+  padding: 0 16px;
+
+  margin-left: 10px;
+  align-items: center;
+
+  cursor: pointer;
+  border: 0;
+      
+  transition: filter 0.2s;
+}
+
+.Btn3 {
+  margin-top: 32px;
+  height: 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: #835afd;
+  color: #fff;
+  padding: 0 16px;
+
+  margin-left: 10px;
+  align-items: center;
+
+  cursor: pointer;
+  border: 0;
+      
+  transition: filter 0.2s;
+}
+
+.txt1 {
+  margin-top: 32px;
+  height: 25px;
+  border-radius: 8px;
+  font-weight: 500;
+
+  justify-content: center; 
+  align-items: center;
+
+  cursor: pointer;
+  border: 0;
+  
+  transition: filter 0.2s;
 }
