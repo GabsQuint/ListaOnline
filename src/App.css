@@ -181,7 +181,7 @@ transition: filter 0.2s;
     }
   
     .Btn2 {
-      margin-top: 1px;
+      margin-top: 10px;
       height: 15px;
       border-radius: 8px;
       font-weight: 500;
@@ -190,12 +190,6 @@ transition: filter 0.2s;
       padding: 0 8px;
     
       margin-left: 10px;
-      align-items: center;
-    
-      cursor: pointer;
-      border: 0;
-          
-      transition: filter 0.2s;
 
       
     }  
@@ -209,7 +203,7 @@ transition: filter 0.2s;
       color: #fff;
       padding: 0 8px;
     
-      margin-left: 32px;
+      margin-left: 112px;
       align-items: center;
     
       cursor: pointer;
@@ -221,4 +215,5 @@ transition: filter 0.2s;
 
 .txt2{
   color: #ACC18A;
+
 }
