@@ -43,8 +43,9 @@ const App = () => {
 
   const handleCheck = async(id) => {
     setChecked(checkbox?false:true);
+    console.log(checkbox)
     await supabase
-    .from('checkbox')
+    .from('purchases')
     .insert({checkbox: checkbox})
     .match({ id:id })
   get_purchases();
@@ -102,7 +103,7 @@ const App = () => {
           return (
             <div key={item.id}><br></br>
               <p className="txt2"> 
-                <input type = "checkbox" onClick={() => handleCheck(item.id)} checked={item.checkbox?true:false}></input>
+                <input type = "checkbox" onClick={() => handleCheck(item.id)} defaultChecked={item.checkbox?true:false}></input>
                 {item.name}
                 <button className="Btn2" onClick={() => handleUpdate(item)} > EDITAR </button>
                 <button className="Btn3"onClick={() => handleDelete(item.id)} > DELETAR </button>
