@@ -47,7 +47,7 @@ const App = () => {
     await supabase
     .from('purchases')
     .insert({checkbox: checkbox})
-    .match({ id:id })
+    .match({ id:editar })
   get_purchases();
   };
       
