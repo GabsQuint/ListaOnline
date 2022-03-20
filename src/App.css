@@ -146,6 +146,7 @@ transition: filter 0.2s;
 }
 
 /* .checkbox {
+
   margin-right: 10px;
   position: relative;
   padding-left: 35px;
@@ -164,3 +165,58 @@ transition: filter 0.2s;
   width: 25px;
   background-color: #eee;
 } */
+
+@media screen and (max-width: 844px) {
+  .separator{
+    font-size: 14px;
+    color: #837A75;
+    font-weight: 1000;
+  
+    margin: 70px 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    }
+  
+    .Btn2 {
+      margin-top: 1px;
+      height: 15px;
+      border-radius: 8px;
+      font-weight: 500;
+      background: #ACC18A;
+      color: #fff;
+      padding: 0 8px;
+    
+      margin-left: 10px;
+      align-items: center;
+    
+      cursor: pointer;
+      border: 0;
+          
+      transition: filter 0.2s;
+
+      
+    }  
+  
+    .Btn3 {
+      margin-top: 1px;
+      height: 15px;
+      border-radius: 8px;
+      font-weight: 500;
+      background: #ACC18A;
+      color: #fff;
+      padding: 0 8px;
+    
+      margin-left: 32px;
+      align-items: center;
+    
+      cursor: pointer;
+      border: 0;
+          
+      transition: filter 0.2s;
+    }  
+}
+
+.txt2{
+  color: rgb(63, 117, 86);
+}
