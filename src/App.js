@@ -7,31 +7,40 @@ import { supabase } from './service/supabase'
 const App = () => {
   // const [Buys, setBuys] = useState([]);
 
-  const [editar, setEditar] = useState(0);
-  const [name, setName] = React.useState("");
+  const [editar, setEditar] = useState(false);
+  const [editData, setEditData] = useState({name: ".", id : 0});
+  const [inputBar, setInputBar] = useState("");
+
   const [purchase, setPurchases] = React.useState([]);
   // const [ nameRequest,setNameReques ] = React.useState(0)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setName('')
-    if (editar !== 0){
-      await edit()
+    if (!inputBar){
+      return
     }
-    if(!name) return;
-    const { data } = await 
-    supabase.from('purchases')
-    .insert({ name: name });
-    if (data) {
-      setName("")
-      get_purchases();
-    }
+    if (editar){ 
+      await edit()    
+      setEditar(false)
+      setEditData({})
+      setInputBar("")
+    }else{
+
+      const { data } = await supabase.from('purchases')
+                      .insert({ name: inputBar });
+      setInputBar("")
+
+      if (data) {
+        get_purchases();
+
+      }
+      }
   }
 
   const get_purchases = async () => {
     const { data } = await supabase
       .from('purchases')
-      .select()
+      .select().order("name", true)
     setPurchases(data);
   }
 
@@ -41,7 +50,6 @@ const App = () => {
 
 
   const handleCheck = async(id, checked) => {
-    console.log(checked)
     await supabase
     .from('purchases')
     .update({checkbox: checked})
@@ -55,8 +63,8 @@ const App = () => {
       .from('purchases')
       .delete()
       .match({ id: id })
-      setName("")
-      setEditar(0)
+      setEditar(false)
+      setInputBar("")
     get_purchases();
   }
 
@@ -64,17 +72,15 @@ const App = () => {
   const edit = async() => {
       await supabase
       .from('purchases')
-      .update({ name: name })
-      .match ({ id: editar })
-      setEditar(0)
+      .update({ name: inputBar })
+      .match ({ id: editData.id })
     get_purchases();
-
   }
 
   const handleUpdate = (item) => {
-    setName(item.name);
-    setEditar(item.id)
-    console.log(editar)
+    setEditar(true)
+    setEditData(item)
+    setInputBar(item.name)
   }
 
 
@@ -88,11 +94,12 @@ const App = () => {
             type="text"
             className="txt1"
             maxLength={30}
-            value={name}
-            onChange={e => setName(e.target.value)}
+            value={inputBar}
+            onChange={e => 
+              setInputBar(e.target.value)
+            }
           />
-            <button className="Btn1"> { editar !== 0 ? "Editar" : "Cadastrar" } </button>
-            <div></div>
+            <button className="Btn1"> { editar ? "Editar" : "Cadastrar" } </button>
             {/* { editar != 0 ?  <button type="button" onClick={edit} > EDITAR </button> : <button  onClick={handleSubmit}> CADASTRAR </button>  } */}
         </form>
 
@@ -100,12 +107,12 @@ const App = () => {
           return (
             <div key={item.id}><br></br>
               <p className="txt2"> 
-                <input className="checkbox" type = "checkbox" onClick={() => {
+                <input 
+                  className="checkbox" type = "checkbox" onClick={() => {
                   handleCheck(item.id, item.checkbox?false:true)} }defaultChecked={item.checkbox?true:false}></input>
                 {item.name}
                 <button className="Btn2" onClick={() => handleUpdate(item)} > EDITAR </button>
                 <button className="Btn3"onClick={() => handleDelete(item.id)} > DELETAR </button>
-                <hr></hr>
               </p>
             </div>
           )
