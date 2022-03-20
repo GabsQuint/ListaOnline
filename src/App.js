@@ -56,6 +56,7 @@ const App = () => {
       .match({ id: id })
       setName("")
       setEditar(0)
+      setChecked(false)
     get_purchases();
   }
 
