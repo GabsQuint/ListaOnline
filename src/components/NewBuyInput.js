@@ -14,18 +14,17 @@ const NewBuyInput = ({ onSubmit }) => {
   }
 
   return (
-    <div>
+    <><div>testando </div><div>
       <form onSubmit={submit}>
         <input
           className="Todo-input"
           placeholder="Digite uma nova compra"
-          onChange={setNewBuy}
-        />
+          onChange={setNewBuy} />
         <button type="submit">
           Adicionar!
         </button>
       </form>
-    </div>
+    </div></>
   )
 };
 
